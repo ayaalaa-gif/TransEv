@@ -1,0 +1,297 @@
+{% extends "base.twig" %}
+{% block content %}
+<header class="header-order pb-4">
+    <div class="container-fluid cont-header text-center ">
+        <div class="row text-center">
+            <div class="logo p-0 bg-transparent col-md-3">
+                <img src="img/logoEv.png">
+            </div>
+            <nav class=" navbar-expand-lg navbar-light mt-2 p-0 rounded col-md-9 px-2 mx-auto">
+                <button class="navbar-toggler mx-auto bg-light rounded p-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-light" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="services.html">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="languages.html">Translation Languages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="career.html">Career</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    {#<div class="container text-center">#}
+        {#<div class="header-item col-md-12">#}
+            {#<div class="header-content">#}
+                {#<h1 class="text-white">Professional</h1>#}
+                {#<p class="text-white">Translation Services</p>#}
+            {#</div>#}
+            {#<div class="header-desc desc1 mb-2 d-flex justify-content-center text-white">#}
+                {#<p class="list"> The easiest way to get a good quality and fast translation <br> Have your document translated without <br> setting foot in atranslation office</p>#}
+            {#</div>#}
+             {#<div class="header-desc  desc2 d-flex justify-content-center text-white">#}
+                {#<p class="list">We have translators specializing in academic, medical <br> legal engineering,marketing,technology and website<br> translation fields just to name a few.</p>#}
+            {#</div> #}
+        {#</div>#}
+    {#</div>#}
+</header>
+<section class="order-sec">
+    <form action="order.php" method="post" enctype="multipart/form-data" id="wizard-form">
+        <div class="basic-lightbox">
+            <div class="lightBox rounded">
+                <div class="container text-center">
+                    <div class="light-base">
+                        <h2 class="te-blue">TransEv Discound Code</h2>
+                        <p class="my-5">Please enter your discount coupon code below.</p>
+                        <input type="text" placeholder="Discount Coupon" class="border-0 text-center"><br>
+                        <button class="btn bg-blue text-white mt-5 light-sub">CONFIRM</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row py-3 justify-content-between">
+                <div class=" d-flex col-md-7 flex-wrap wizard p-0">
+                    <div class="col-md-12 d-flex my-4 wizard-order">
+                        <div class="form-sign"><h5 class="py-2">Step 1</h5><div id="triangle"></div></div>
+                        <div class="col-md-12 bg-light p-4 d-flex flex-wrap text-entry">
+                            <h5 class="col-md-12">TEXT ENTRY</h5>
+                            <label class="col-md-6 py-3 px-0 text-center label-item doc gray form-check" file="photo">
+                                <input type="radio" name="text" required>
+                                Upload Document/Photo
+                            </label>
+                            <label class="col-md-6 py-2 py-3 px-0 label-item text-center form-check" file="text">
+                                <input type="radio" id="inpFile" name="text" required>
+                                Type Text
+                            </label>
+                            <div class="text-content col-md-12 p-0 my-3" id="text">
+                                <textarea class="w-100 px-1 rounded countWord" placeholder="Enter Your Text Here..." cols="50" rows="6" name="entry_text"></textarea>
+                                <div class="d-flex my-3 justify-content-between">
+                                    <h5 class="col-md-6">Total Word Count: <span class="col-2 total"></span></h5>
+                                    <button class="bg-primary text-white border-0 py-2 rounded col-md-4" type="button">Upload Text</button>
+                                </div>
+                            </div>
+                            <div id="fileInput" class="col-md-12 p-0 my-3">
+                                <div class="form-group" id="photo">
+                                    <input type="file" name="file" id="inp" class="form-control" multiple="multiple">
+                                    <span class="btn">Select File</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex my-4 wizard-order">
+                        <div class="form-sign"><h5 class="py-2">Step 2</h5><div id="triangle"></div></div>
+                        {#<div class="text-white  circle-lang"><span class="circle-num d-inline-block">2</span></div>#}
+                       <div class="col-md-12 bg-light p-4 d-flex flex-wrap">
+                           <h5 class="col-md-12 mt-5">LANGUAGE SELECTION</h5>
+                           <label  for="select_lang" class="mt-3"><b>Source Language</b></label><br>
+                           <select  id="select_lang" class="w-100 p-2 col-md-12 langVal" name="source_lang" required >
+                               <option class="text-secondary">Select Language</option>
+                               <option value="Arabic">Arabic</option>
+                               <option value="English">English</option>
+                               <option value="French">French</option>
+                               <option value="Armanian">Armanian</option>
+                               <option value="Arabic">Arabic</option>
+                           </select>
+                           <label for="select_target" class="mt-4 col-md-12"><b>Target Language</b></label><br>
+                           <select class="js-example-basic-multiple w-100 col-md-12 langVal" name="target_lang" id="select_target" multiple="multiple" required>
+                               <option disabled>You can choose more than one</option>
+                               <option value="Arabic">Arabic</option>
+                               <option value="English">English</option>
+                               <option value="Armanian">Armanian</option>
+                               <option value="French">French</option>
+                           </select>
+                       </div>
+                   </div>
+                    <div class="col-md-12 d-flex my-4 wizard-order">
+                        <div class="form-sign"><h5 class="py-2">Step 3</h5><div id="triangle"></div></div>
+                        {#<div class="text-white circle-lang"><span class="circle-num d-inline-block">3</span></div>#}
+                        <div class="col-md-12 bg-light p-4">
+                            <h5 class="mt-5">SERVICE TYPE</h5>
+                            <div class="d-flex list-unstyled listed-lang flex-wrap col-md-12">
+                                <div class="col-lg-4 col-md-12 p-0 lang-active form-check ">
+                                    <label class="label-item  w-100 m-0 py-3">
+                                        <input type="radio" name="service" id="exampleRadios1" value="Translation" class="langVal">
+                                        Translation
+                                    </label>
+                                </div>
+                                <div class="col-lg-4 col-md-12 p-0 form-check">
+                                    <label  class="label-item  w-100 m-0 py-3">
+                                        <input type="radio" name="service" id="exampleRadios1" value="Paraphrasing" class="langVal">
+                                        Paraphrasing
+                                    </label>
+                                </div>
+                                <div class="col-lg-4 col-md-12 p-0 form-check">
+                                    <label  class="label-item  w-100 m-0 py-3">
+                                        <input type="radio" name="service" id="exampleRadios1" value="Proofreading" class="langVal">
+                                        Proofreading
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex my-4 wizard-order">
+                        <div class="form-sign"><h5 class="py-2">Step 4</h5><div id="triangle"></div></div>
+                        <div class="col-md-12 bg-light p-4">
+                            <h5 class="mt-5">FIELD OF EXPERTISE</h5>
+                            <div class="d-flex expertise col-md-12 p-0 flex-wrap listed-lang">
+                                <div class="col-lg-4 col-md-12 d-flex p-0 form-check ">
+                                    <label class="label-item pl-3 w-100 m-0 py-3">
+                                        <input type="radio" name="expertise" value="General" class="langVal">
+                                        <span class="col-md-12"><i class="fas fa-file-alt mr-3 "></i>General</span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-4 col-md-12 d-flex p-0 form-check">
+                                    <label class="label-item pl-3 w-100 m-0 py-3">
+                                        <input type="radio" name="expertise" id="exampleRadios1" value="Legal" class="langVal">
+                                        <span class="col-md-12"><i class="fas fa-balance-scale-left mr-3"></i>Legal</span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-4 col-md-12 d-flex p-0 form-check">
+                                    <label class="label-item pl-3 w-100 m-0 py-3">
+                                        <input type="radio" name="expertise" id="exampleRadios1" value="Medical" class="langVal">
+                                        <span class="col-md-12"><i class="fas fa-stethoscope mr-3"></i>Medical</span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-4 col-md-12 d-flex p-0 form-check">
+                                    <label class="label-item pl-3 w-100 m-0 py-3">
+                                        <input type="radio" name="expertise" id="exampleRadios1" value="Technical" class="langVal">
+                                        <span class="col-md-12"><i class="fas fa-drafting-compass mr-3"></i>Technical</span>
+                                    </label>
+                                </div>
+                                <div class="col-lg-4 col-md-12 d-flex p-0 form-check">
+                                    <label class="label-item pl-3 w-100 m-0 py-3">
+                                        <input type="radio" name="expertise" id="exampleRadios1" value="Academic" class="langVal">
+                                        <span class="col-md-12"><i class="fas fa-graduation-cap mr-3"></i>Academic</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex my-4 wizard-order">
+                        <div class="form-sign"><h5 class="py-2">Step 5</h5><div id="triangle"></div></div>
+                        {#<div class="text-white circle-lang"><span class="circle-num d-inline-block">5</span></div>#}
+                        <div class="col-md-12 bg-light p-4">
+                            <h5 class="mt-5">CATEGORY</h5>
+                            <div class="d-flex list-unstyled listed-lang col-md-12 flex-wrap">
+                                <div class="col-lg-6 col-md-12 lang-active p-0 form-check">
+                                    <label class="label-item  w-100 m-0 py-3">
+                                        <input type="radio" name="cat_name" id="exampleRadios1" value="Professional" class="langVal">
+                                        Professional Translator
+                                    </label>
+                                </div>
+                                <div class="col-lg-6 col-md-12 p-0 form-check">
+                                    <label class="label-item pl-2 w-100 m-0 py-3">
+                                        <input type="radio" name="cat_name" id="exampleRadios1" value="Certified" class="langVal">
+                                        Certified Translator
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex my-4 wizard-order">
+                        <div class="form-sign"><h5 class="py-2">Step 6</h5><div id="triangle"></div></div>
+                        {#<div class="text-white  circle-lang"><span class="circle-num d-inline-block">6</span></div>#}
+                        <div class="col-md-12 bg-light p-4">
+                            <h5 class="mt-5">TRANSLATION DURATION</h5>
+                            <div class="d-flex list-unstyled listed-lang col-md-12 flex-wrap">
+                                <div class="col-lg-6 col-md-12 p-0 lang-active form-check ">
+                                    <label class="label-item pl-2 w-100 m-0 py-3">
+                                        <input type="radio" name="RadiosLan" id="exampleRadios1" value="Standard" class="langVal">
+                                        Standard Duration
+                                    </label>
+                                </div>
+                                <div class="col-lg-6 col-md-12 p-0 form-check ">
+                                    <label class="label-item pl-2 w-100 m-0 py-3">
+                                        <input type="radio" name="RadiosLan" id="exampleRadios1" value="Fast" class="langVal">
+                                        Fast translation
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex my-4 wizard-order">
+                        <div class="form-sign"><h5 class="py-2">Step 7</h5><div id="triangle"></div></div>
+                        {#<div class="text-white circle-lang"><span class="circle-num d-inline-block">7</span></div>#}
+                        <div class="col-md-12 bg-light p-4">
+                            <h5 class="mt-5">ADDITIONAL SERVICES</h5>
+                            <div class="d-flex list-unstyled  col-md-12">
+                                <div class="">
+                                    <label class="checkbox-label">
+                                        <span class="ml-3">I Would Like to recieve DTP services for my documents</span>
+                                        <input type="checkbox" class="langVal" name="add_service">
+                                        <span class="checkbox-custom"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex my-4 wizard-order">
+                        <div class="form-sign"><h5 class="py-2">Step 8</h5><div id="triangle"></div></div>
+                        {#<div class="text-white  circle-lang"><span class="circle-num d-inline-block">8</span></div>#}
+                        <div class="col-md-12 bg-light p-4">
+                            <h5 class="mt-5">TRANSLATION BRIEF</h5>
+                            <textarea class="col-md-12" rows="6" cols="50" placeholder="You may enter your requests or additional information regarding your document"></textarea>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-5 my-4 proof ">
+                    <div class="proofreading w-100">
+                        <div class="spinner spinner-loader" id="loader">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <div class="d-flex order-submit px-3 py-1">
+                            <h5 ><span><i class="fas fa-chevron-down mr-2"></i><b class="">Your Order</b></span></h5>
+                        </div>
+                        <div class="order-list px-2 py-1 bg-light">
+                            <ul class="list-unstyled">
+                                <li>Total word count:<b><span class="total"></span></b></li>
+                                <li>Target Language(s):<b><span class="tarLang"></span></li>
+                                <li>Service Type:<b><span class="serType"></span></li>
+                                <li>Field of Expertise:<span ><b class="radVal"></b></span> </li>
+                            </ul>
+                        </div>
+                        <div class="form-check order-check bg-light">
+                            <label class="checkbox-label mt-1"><span class="ml-3">I have a coupon</span>
+                                <input type="checkbox" class="lightbox-coupon langVal" name="coupon">
+                                <span class="checkbox-custom ml-2 mt-1"></span>
+                            </label>
+                        </div>
+                        <div class="py-1 bg-light order-check border-top-0 d-flex">
+                            <h5 class="col-md-8"><b>Total</b></h5>
+                            <h5 class="text-danger text-right pr-2">EGP <span id="total"> 00.00</span></h5>
+                        </div>
+                        <div class="text-center py-3 bg-light">
+                            <button type="submit" class="border-0 py-2 px-5 bg-primary text-white rounded">PLACE ORDER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+<section class="p-0 order-img" >
+    <img src="img/last.png" class="w-100">
+</section>
+{% endblock %}
